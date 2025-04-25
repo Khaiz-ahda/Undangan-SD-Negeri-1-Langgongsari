@@ -1,0 +1,2659 @@
+/*========================================
+    Global Styles
+========================================*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+/*========================================
+    Navigation Styles
+========================================*/
+.navigation {
+    position: fixed;
+    bottom: 5px;
+    right: 20px; /* Tetap di kanan bawah untuk laptop */
+    width: 375px; /* Lebar tetap */
+    height: auto;
+    background: linear-gradient(45deg, #1835db, #6ebb5b); /* Gradasi warna */
+    border-radius: 5px; /* Sudut melengkung */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    padding: 10px;
+    overflow: hidden; /* Hindari elemen meluap */
+    display: flex;
+    justify-content: center; /* Pusatkan konten secara horizontal */
+    align-items: center; /* Pusatkan konten secara vertikal */
+    backdrop-filter: blur(5px); /* Tambahkan efek blur untuk elemen di belakang */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Batas transparan untuk aksen */
+}
+
+
+.navigation ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    transition: transform 0.3s ease-in-out; /* Untuk efek geser */
+}
+
+.navigation .list {
+    position: relative;
+    flex: none;
+    margin: 0 10px; /* Jarak antar ikon */
+    transition: all 0.3s ease-in-out;
+}
+
+.navigation .list a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.navigation .list .icon {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #fff;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.navigation .list:hover .icon {
+    transform: scale(1.2); /* Perbesar ikon saat hover */
+    color: #f4f4f4; /* Ubah warna ikon */
+}
+
+.navigation .list .text {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.navigation .list.active {
+    background: rgba(255, 255, 255, 0.2); /* Warna latar untuk elemen aktif */
+    border-radius: 50px;
+    padding: 5px;
+}
+
+/*========================================
+    OPENING PAGE
+========================================*/
+
+
+/*========================================
+    Gambar Penuh di Kiri untuk Laptop
+========================================*/
+.image-container {
+    position: fixed;
+    width: 100%; /* Buat gambar menutupi lebar layar */
+    max-width: 880px; /* Batasi ukuran maksimal gambar */
+    height: 100%; /* Tinggi penuh */
+    max-height: 900px; /* Batasi tinggi maksimal */
+    bottom: 0; /* Rapat di bagian bawah layar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan untuk estetika */
+    border-radius: 5px; /* Sudut gambar melengkung */
+    overflow: hidden; /* Sembunyikan elemen gambar yang meluap */
+}
+
+/* Gaya untuk gambar di dalam container */
+.image-container img {
+    width: 100%; /* Pastikan gambar menyesuaikan lebar container */
+    height: 100%; /* Sesuaikan tinggi gambar */
+    object-fit: cover; /* Isi container tanpa meregangkan gambar */
+   
+}
+
+
+/*========================================
+    Circle Animation for Active List
+========================================*/
+.navigation .list .circle {
+    position: absolute;
+    bottom: -10px;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    display: none;
+    animation: bounce 0.6s infinite alternate;
+}
+
+.navigation .list.active .circle {
+    display: block;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+/*========================================
+    Responsiveness for Mobile
+========================================*/
+@media screen and (max-width: 768px) {
+/*========================================
+    Navabar bawah/Navigation
+========================================*/
+     /* Hidden Navigation CSS */
+     .navigation {
+        bottom: 1px;
+        right: 1px; /* Navigasi berada di bawah layar */
+        left: 1px; /* Posisikan navigasi di tengah layar */
+        width: 400px; /* Lebar navigasi penuh untuk handphone */
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        overflow: hidden; /* Sembunyikan elemen yang meluap */
+      }
+  
+      .navigation ul {
+        display: flex; /* Atur tata letak horizontal */
+        flex-direction: row; /* Susun ikon secara horizontal */
+        align-items: center; /* Pusatkan ikon secara vertikal */
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 100%; /* Lebar penuh untuk handphone */
+        height: 60px; /* Tinggi tetap untuk ikon */
+        justify-content: space-between; /* Ikon diratakan */
+      }
+  
+      .navigation ul li {
+        margin: 0 5px; /* Kurangi jarak antar ikon */
+        flex: none;
+        width: 55px; /* Ukuran tetap untuk setiap ikon */
+        height: 50px;
+      }
+  
+      .navigation ul li .icon {
+        font-size: 1.4rem; /* Ukuran ikon lebih kecil */
+      }
+  
+      .navigation ul li .text {
+        font-size: 0.7rem; /* Ukuran teks lebih kecil */
+      }
+  
+      .video-container {
+        display: none; /* Sembunyikan gambar di handphone */
+      }
+
+      .navigation-container {
+        display: none; /* Navigasi disembunyikan saat pertama kali halaman dimuat */
+      }
+     /* Nonaktifkan scroll secara default */
+    body.no-scroll {
+    overflow: hidden; /* Nonaktifkan scroll */
+    }
+
+/*========================================
+    Hero/Opening
+========================================*/
+    /* Hero Section */
+    #hero {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    .hero {
+        max-width: 388px;
+        width: 100%;
+        padding: 20px;
+        padding-top: 10px;
+        padding-bottom: 60px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-image: url(themes/casanova/background.jpg);
+        background-size: cover;
+        background-position: center;
+        border-radius: 0px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hero p, .hero p1, .hero h1, .hero h2, .hero p2, .hero h3 {
+        padding-left: 16px;
+        
+    }
+
+    /*The Wedding of*/
+    .hero p{
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        padding-top: 10px;
+        color: #000000d0;
+        font-family: "Montserrat", sans-serif;
+        text-shadow: #000000 0px 1px 2px; /* Bayangan teks */
+    }
+
+
+    /* Baris untuk h4, p3, dan h5 */
+    .hero .top-roww {
+        display: flex;
+        justify-content: space-between; /* Mengatur posisi elemen */
+        align-items: center;
+        width: 100%; /* Pastikan elemen menyesuaikan lebar container */
+    }
+
+    /* 1 Abad */
+    .hero h1 {
+        font-size: 1.5rem; /* Ukuran judul */
+        margin-top: 15px; /* Jarak atas */
+        margin-bottom: 30px; /* Jarak bawah */
+        color: #ff9a03; /* Warna teks putih */
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        font-family: "Lobster", sans-serif; /* Font khusus */
+        text-align: center; /* Teks rata kiri */
+    }
+
+     /* SD Negeri 1 Langgongsari */
+     .hero h2 {
+        font-size: 1.5rem; /* Ukuran judul */
+        margin-top: -25px; /* Jarak atas */
+        margin-bottom: -15px; /* Jarak bawah */
+        color: #ff9900; /* Warna teks putih */
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        font-family: "Lobster", sans-serif; /* Font khusus */
+        text-align: center; /* Teks rata kanan */
+    }
+
+    
+    /*Description*/
+    .hero p1 {
+        font-family: "Arimo", sans-serif;
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        font-size: 20px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+        text-align: center; /* Teks rata tengah */
+        margin: 0 20px; /* Memberikan jarak horizontal */
+    }
+
+   
+    /*Akan melangsungkan resepsi pernikahan dalam :*/
+    .hero p2 {
+        font-family: "Arimo", sans-serif;
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        font-size: 1rem;
+        padding-bottom: 20px;
+        padding-top: 5px;
+        text-align: center; /* Teks rata tengah */
+        margin: 0 10px; /* Memberikan jarak horizontal */
+    }
+
+    /*Kepada Yth :*/
+    .hero h3 {
+        font-size: 1rem;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #000000;
+        font-family: "Lobster", sans-serif;
+        
+    }
+
+    /*Bapak/Ibu/Saudara/i,*/
+    .hero p3 {
+        font-size: 1rem;
+        margin-top: 2.5px;
+        margin-bottom: 10px;
+        color: #000000;
+        font-family: "Lobster", sans-serif;
+        text-shadow: #000000 0px 0px 1px;
+    }
+
+    /*Nama Tamu :*/
+    .hero h4 {
+        font-size: 1rem;
+        margin-top: 5px;
+        margin-bottom: -35px;
+        color: #000000;
+        font-family: "Lobster", sans-serif;
+        
+    }
+
+    /* countdown */
+.countdown {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.time1 {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0 0 0 0.5);
+    background: rgba(184, 190, 184, 0.664);
+}
+
+.time1 h3 {
+    font-family: "Lobster", sans-serif;
+    font-size: 1rem;
+    font-weight: 100;
+    padding-right: 13px;
+    padding-top: 8px;
+    
+    
+}
+
+.time1 p {
+    font-family: "Lobster", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 100;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+    /* Animation Keyframes */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+/*========================================
+    Button Buka Undangan
+========================================*/
+    /* Button Styles */
+    .btn-open-invitation {
+        background-color: #eb5419;
+        margin-top: 45px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        color: white;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 50rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-open-invitation:hover {
+        background-color: #e24709;
+        transform: scale(1.05);
+    }
+
+    .btn-open-invitation:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    }
+
+    .mb-4 {
+        margin-bottom: 1.5rem;
+    }
+
+/*========================================
+    Layout event
+========================================*/
+    /* event Section */
+    #event {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    .event {
+        max-width: 388px;
+        width: 100%;
+        padding: 20px;
+        padding-top: 5px;
+        padding-bottom: 80px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-image: url(themes/casanova/background.jpg);
+        background-size: cover;
+        background-position: center;
+        border-radius: 0px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+
+    /* Baris untuk h4, p3, dan h5 */
+    .event .top-row {
+        display: flex;
+        justify-content: space-between; /* Mengatur posisi elemen */
+        align-items: center;
+        width: 100%; /* Pastikan elemen menyesuaikan lebar container */
+       }
+   
+      
+   
+   /* Title Styling */
+.event h2 {
+    font-size: 1.5rem; /* Ukuran judul lebih besar */
+    margin-top: -320px; /* Atur jarak dari atas */
+    margin-bottom: 10px; /* Atur jarak dari bawah */
+    background: linear-gradient(90deg, #1310e9, #0080ff); /* Gradien dua warna: coral dan dodger blue */
+    -webkit-background-clip: text; /* Potong latar belakang sesuai teks (untuk efek warna di teks) */
+    color: transparent; /* Warna teks transparan agar gradien terlihat */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* Bayangan teks yang kuat */
+    font-family: "Cinzel", serif; /* Font yang memberikan nuansa klasik dan berkarakter */
+}
+   
+   /* Introductory Text */
+   .event p {
+       font-size: 1rem;
+       margin: 0 20px;
+       padding-top: 10px;
+       padding-bottom: 350px; /* Space below */
+       color: #000000; /* Dark grey text */
+       text-shadow: #000000 0px 0px 1px;
+       font-family: "Arimo", sans-serif; /* Clean font */
+   }
+   
+   /* Top Row for Date and Time */
+   .event .top-row {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       width: 100%;
+       margin-top: 10px;
+   }
+
+   /* Date Styling */
+.event p3 {
+    font-size: 1.2rem;
+    color: #000000; /* Subtle blue shade */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Slight shadow */
+    font-weight: bold;
+    padding-bottom: -30px;
+    padding-left: 65px;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* Bayangan teks yang kuat */
+    font-family: "Arimo", sans-serif;
+}
+
+/* Date Styling */
+.event p4 {
+    font-size: 1.2rem;
+    color: #000000; /* Subtle blue shade */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Slight shadow */
+    font-weight: bold;
+    padding-right: 65px;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* Bayangan teks yang kuat */
+    font-family: "Arimo", sans-serif;
+}
+   
+   /* Date Styling */
+   .event p1 {
+       font-size: 1.1rem;
+       color: #000000; /* Subtle blue shade */
+       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Slight shadow */
+       font-weight: bold;
+       padding-top: 40px;
+       font-family: "Arimo", sans-serif;
+   }
+   
+   /* Time Styling */
+   .event p2 {
+       font-size: 1.1rem;
+       color: #000000; /* Bright red-orange for contrast */
+       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Slight shadow */
+       font-weight: bold;
+       padding-top: 40px;
+       font-family: "Arimo", sans-serif;
+   }
+   
+   /* Speaker Section */
+.event p5 {
+    font-size: 1.1rem;
+    color: #000000; /* Warna hijau hangat (Sea Green) untuk kesan alami dan elegan */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Bayangan lembut yang memberikan kedalaman */
+    margin: 20px 0 5px; /* Jarak atas dan bawah */
+    text-transform: uppercase; /* Huruf besar untuk penekanan */
+    letter-spacing: 1.2px; /* Spasi huruf lebih jelas */
+    font-family: "Playfair Display", serif; /* Font yang memberi nuansa profesional dan berkarakter */
+}
+
+/* Enhanced Section for Additional Speaker Info */
+.event p6 {
+    font-size: 1.5rem;
+    color: #000000; /* Warna indigo untuk kesan misterius dan profesional */
+    font-weight: 600; /* Sedikit lebih tebal untuk kesan kokoh */
+    font-family: "Montserrat", sans-serif; /* Font modern untuk kesan dinamis */
+    margin: 0 20px; /* Jarak kiri dan kanan */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6); /* Bayangan kuat untuk teks yang berkesan */
+    letter-spacing: 1px; /* Spasi tambahan untuk keterbacaan */
+    padding-bottom: 40px;
+}
+   
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/*========================================
+    Layout MAPS
+========================================*/
+    /* MAPS */
+    #maps {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    .maps {
+        max-width: 388px;
+        width: 100%;
+        padding: 20px;
+        padding-top: 5px;
+        padding-bottom: 135px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-image: url(themes/casanova/background.jpg);
+        background-size: cover;
+        background-position: center;
+        border-radius: 0px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        transition: all 0.3s ease-in-out;
+    }
+    
+
+    /* Lokasi Acara Resepsi */
+    .maps h14 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        padding-top: 20px;
+        color: #8B0000; /* Warna merah gelap */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sentuhan bayangan */
+        text-align: center;
+        font-family: "Mea Culpa", cursive; /* Font mewah */
+    }
+
+    /* Rizky Fauzan Ramadhani */
+    .maps h15 {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+        padding-top: 0px;
+        color: #ff9a03; /* Warna teks kuning */
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        text-align: justify;
+        font-family: "Lobster", sans-serif; /* Font khusus */
+    }
+
+
+    .maps p17 {
+        font-size: 0.9rem;
+        margin: 5px 20px; /* Spasi kiri dan kanan lebih proporsional */
+        color: #000000;
+        text-align: justify;
+        font-family: "Roboto", sans-serif;
+    }
+
+    
+
+    /* Tombol */
+
+    .maps btnn {
+        padding-top: 50px;
+    }
+    .btnn {
+        font-size: 10px; /* Ukuran font lebih besar */
+        color: #fff;
+        background-color: #FF4500; /* Warna oranye cerah */
+        padding: 12px 25px;
+        border-radius: 50px; /* Bentuk lebih melingkar */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+        transition: all 0.3s ease;
+    }
+
+    .btnn:hover {
+        background-color: #FF6347; /* Sentuhan warna yang lebih cerah saat hover */
+        transform: scale(1.1); /* Efek zoom yang lebih kuat */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Bayangan lebih dalam */
+    }
+
+
+/*========================================
+    Layout RSVP
+========================================*/
+/* RSVP */
+#rsvp {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.rsvp {
+    max-width: 388px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-image: url(themes/casanova/background.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Konfirmasi Kehadiran */
+.rsvp h1{
+    font-size: 2.3rem;
+        margin-bottom: 10px;
+        padding-top: 20px;
+        color: #8B0000; /* Warna merah gelap */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sentuhan bayangan */
+        text-align: center;
+        font-family: "Mea Culpa", cursive; /* Font mewah */
+}
+
+/* countdown */
+.timebox {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.time {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0 0 0 0.5);
+    background: rgba(184, 190, 184, 0.664);
+}
+
+.time h2 {
+    font-family: "Lobster", sans-serif;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.time p {
+    font-family: "Lobster", sans-serif;
+    font-size: 1rem;
+    font-weight: 100;
+   
+}
+
+.rsvp h15 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    color: #000000;
+    text-align: center;
+    font-family: "Neuton", serif;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Gaya untuk label */
+.form-label {
+    font-weight: bold;
+    color: #343A40;
+    margin-bottom: 6px;
+  }
+  
+  /* Gaya untuk input teks */
+  .form-control, .form-select {
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  /* Gaya untuk tombol */
+  .btnnn-primary {
+    background-color: #007BFF;
+    border: none;
+    padding: 10px 10px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .btnnn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  .btnnn-primary:active {
+    transform: translateY(0);
+  }
+  
+  /* Gaya untuk margin antar elemen */
+  .mb-3 {
+    margin-bottom: 16px;
+  }
+
+/* Disqus Thread Container */
+#disqus_thread {
+    margin-top: 20px; /* Jarak atas dengan elemen sebelumnya */
+   margin-bottom: -100px;
+    margin-left: 15px; /* Jarak kiri */
+    margin-right: 7px; /* Jarak kanan */
+    padding: 20px; /* Memberikan ruang internal */
+    background-color: #ffffff7a; /* Warna latar putih */
+    border: 1px solid #ccc; /* Border abu-abu lembut */
+    border-radius: 5px; /* Sudut melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan untuk kedalaman */
+    width: 90%; /* Menyesuaikan dengan lebar RSVP */
+    max-width: 388px; /* Maksimal lebar agar konsisten dengan .rsvp */
+    font-family: "Arial", sans-serif; /* Gaya font standar */
+    color: #333; /* Warna teks */
+    text-align: left; /* Posisi teks */
+    height: 300px; /* Tinggi elemen untuk memungkinkan scroll */
+    overflow-y: auto; /* Scroll hanya pada sumbu vertikal */
+    scrollbar-width: thin; /* Untuk tampilan scrollbar yang ramping */
+}
+
+/* Custom Scrollbar untuk Disqus */
+#disqus_thread::-webkit-scrollbar {
+    width: 8px; /* Lebar scrollbar */
+}
+
+#disqus_thread::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Warna latar scrollbar */
+}
+
+#disqus_thread::-webkit-scrollbar-thumb {
+    background: #eb5419; /* Warna scrollbar */
+    border-radius: 5px; /* Sudut melengkung pada scrollbar */
+}
+
+#disqus_thread::-webkit-scrollbar-thumb:hover {
+    background: #e24709; /* Warna scrollbar saat hover */
+}
+
+/* Hyperlink di dalam Disqus */
+#disqus_thread a {
+    color: #eb5419; /* Warna utama untuk link */
+    text-decoration: none; /* Hilangkan garis bawah */
+    font-weight: bold; /* Teks link lebih tegas */
+    transition: color 0.3s ease; /* Animasi warna saat hover */
+}
+
+#disqus_thread a:hover {
+    color: #e24709; /* Warna lebih gelap saat hover */
+    text-decoration: underline; /* Tambahkan garis bawah saat hover */
+}
+
+
+/*========================================
+    Layout Thanks
+========================================*/
+/* THANKS */
+#thanks {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.thanks {
+    max-width: 388px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 50px;
+    padding-bottom: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-image: url(themes/casanova/background.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menghitung Hari */
+.thanks h17{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-top: 200px;
+    color: #8B0000;
+    text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+    text-align: justify;
+    font-family: "Mea Culpa", cursive;
+}
+
+.thanks p20{
+    font-size: 0.9rem;
+        margin: 5px 20px; /* Spasi kiri dan kanan lebih proporsional */
+        color: #000000;
+        text-align: justify;
+        font-family: "Roboto", sans-serif;
+}
+
+.thanks p21{
+    font-size: 0.9rem;
+        margin: 5px 20px; /* Spasi kiri dan kanan lebih proporsional */
+        color: #000000;
+        text-align: justify;
+        font-family: "Roboto", sans-serif;
+}
+
+/* Initially hide the music icon */
+#music-icon {
+    position: fixed; /* Ensure it stays fixed on the screen */
+    bottom: 96px; /* Distance from the bottom */
+    right: 10px; /* Distance from the right */
+    display: none; /* Hidden initially */
+    padding: 10px;
+    color: black;
+    background-color: #ffffff6c;
+    cursor: pointer; /* Make the icon clickable */
+    z-index: 1000; /* Keep it above other content */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#music-icon {
+    width: 23px; /* Icon size */
+    height: auto;
+    color: #ff0000; /* Optional: Hover effect */
+}
+
+/* Style for the barcode icon container */
+#barcode-icon-container {
+    position: fixed; /* Ensure it stays fixed on the screen */
+    bottom: 148px; /* Distance from the bottom */
+    right: 10px; /* Distance from the right */
+    display: none; /* Hidden initially */
+    padding: 10px;
+    color: black;
+    background-color: #ffffff6c;
+    cursor: pointer; /* Make the icon clickable */
+    z-index: 1000; /* Keep it above other content */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the barcode itself */
+#barcode-icon {
+    width: 23px; /* Icon size */
+    height: auto;
+    color: #000000; /* Optional: Hover effect */
+}
+
+/* Style for the WhatsApp icon container */
+#whatsapp-icon-container {
+    position: fixed; /* Ensure it stays fixed on the screen */
+    bottom: 203px; /* Distance from the bottom */
+    right: 10px; /* Distance from the right */
+    display: none; /* Hidden initially */
+    padding: 10px;
+    color: #1b880e; /* Color for the WhatsApp icon */
+    background-color: #ffffff6c;
+    cursor: pointer; /* Make the icon clickable */
+    z-index: 1000; /* Keep it above other content */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#whatsapp-icon  {
+    width: 100px; /* Icon size */
+    height: auto;
+    color: #000000; /* Optional: Hover effect */
+}
+    
+/*========================================
+    Responsiveness for tablet
+========================================*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+/*========================================
+    Navabar bawah/Navigation
+========================================*/
+    /* Hidden Navigation CSS */
+.navigation {
+    position: fixed; /* Pastikan posisi tetap */
+    bottom: 1px; /* Jarak dari bawah */
+    right: 1px; /* Navigasi berada di sisi kanan layar */
+    width: 400px; /* Lebar navigasi */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    overflow: hidden; /* Sembunyikan elemen yang meluap */
+}
+
+.navigation ul {
+    display: flex; /* Atur tata letak horizontal */
+    flex-direction: row; /* Susun ikon secara horizontal */
+    align-items: center; /* Pusatkan ikon secara vertikal */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%; /* Lebar penuh */
+    height: 60px; /* Tinggi tetap untuk ikon */
+    justify-content: space-between; /* Ratakan ikon */
+}
+
+.navigation ul li {
+    margin: 0 5px; /* Kurangi jarak antar ikon */
+    flex: none;
+    width: 55px; /* Ukuran tetap untuk setiap ikon */
+    height: 50px;
+}
+
+.navigation ul li .icon {
+    font-size: 1.4rem; /* Ukuran ikon */
+}
+
+.navigation ul li .text {
+    font-size: 0.7rem; /* Ukuran teks */
+}
+
+.video-container {
+    display: none; /* Sembunyikan video */
+}
+
+.navigation-container {
+    display: none; /* Navigasi tersembunyi saat pertama kali dimuat */
+}
+
+/* Nonaktifkan scroll secara default */
+body.no-scroll {
+    overflow: hidden; /* Nonaktifkan scroll */
+}
+
+
+/*========================================
+    Hero/Opening
+========================================*/
+    /* Hero Section */
+    #hero {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    .hero {
+        max-width: 388px;
+        width: 100%;
+        padding: 20px;
+        padding-top: 10px;
+        padding-bottom: 60px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-image: url(themes/casanova/background.jpg);
+        background-size: cover;
+        background-position: center;
+        border-radius: 0px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hero p, .hero p1, .hero h1, .hero h2, .hero p2, .hero h3 {
+        padding-left: 16px;
+        
+    }
+
+    /*The Wedding of*/
+    .hero p{
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        padding-top: 10px;
+        color: #000000d0;
+        font-family: "Mea Culpa", cursive;
+        text-shadow: #000000 0px 0px 1px; /* Bayangan teks */
+    }
+
+
+    /* Baris untuk h4, p3, dan h5 */
+    .hero .top-roww {
+        display: flex;
+        justify-content: space-between; /* Mengatur posisi elemen */
+        align-items: center;
+        width: 100%; /* Pastikan elemen menyesuaikan lebar container */
+    }
+
+    /* 1 Abad */
+    .hero h1 {
+        font-size: 1.5rem; /* Ukuran judul */
+        margin-top: 15px; /* Jarak atas */
+        margin-bottom: 30px; /* Jarak bawah */
+        color: #ff9a03; /* Warna teks putih */
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        font-family: "Lobster", sans-serif; /* Font khusus */
+        text-align: center; /* Teks rata kiri */
+    }
+
+     /* SD Negeri 1 Langgongsari */
+     .hero h2 {
+        font-size: 1.5rem; /* Ukuran judul */
+        margin-top: -25px; /* Jarak atas */
+        margin-bottom: -15px; /* Jarak bawah */
+        color: #ff9900; /* Warna teks putih */
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        font-family: "Lobster", sans-serif; /* Font khusus */
+        text-align: center; /* Teks rata kanan */
+    }
+
+    
+    /*Description*/
+    .hero p1 {
+        font-family: "Arimo", sans-serif;
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        font-size: 20px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+        text-align: center; /* Teks rata tengah */
+        margin: 0 20px; /* Memberikan jarak horizontal */
+    }
+
+   
+    /*Akan melangsungkan resepsi pernikahan dalam :*/
+    .hero p2 {
+        font-family: "Arimo", sans-serif;
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        font-size: 1rem;
+        padding-bottom: 20px;
+        padding-top: 5px;
+        text-align: center; /* Teks rata tengah */
+        margin: 0 10px; /* Memberikan jarak horizontal */
+    }
+
+    /*Kepada Yth :*/
+    .hero h3 {
+        font-size: 1rem;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #000000;
+        font-family: "Lobster", sans-serif;
+        text-shadow: #000000 0px 0px 1px;
+    }
+
+    /*Bapak/Ibu/Saudara/i,*/
+    .hero p3 {
+        font-size: 1rem;
+        margin-top: 2.5px;
+        margin-bottom: 10px;
+        color: #000000;
+        font-family: "Lobster", sans-serif;
+        text-shadow: #000000 0px 0px 1px;
+    }
+
+    /*Nama Tamu :*/
+    .hero h4 {
+        font-size: 1rem;
+        margin-top: 5px;
+        margin-bottom: -35px;
+        color: #000000;
+        font-family: "Lobster", sans-serif;
+        text-shadow: #000000 0px 0px 1px;
+    }
+
+    /* countdown */
+.countdown {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.time1 {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0 0 0 0.5);
+    background: rgba(184, 190, 184, 0.664);
+}
+
+.time1 h3 {
+    font-family: "Lobster", sans-serif;
+    font-size: 1rem;
+    font-weight: 100;
+    padding-right: 13px;
+    padding-top: 8px;
+    
+    
+}
+
+.time1 p {
+    font-family: "Lobster", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 100;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+    /* Animation Keyframes */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+/*========================================
+    Button Buka Undangan
+========================================*/
+    /* Button Styles */
+    .btn-open-invitation {
+        background-color: #eb5419;
+        margin-top: 25px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        color: white;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 50rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-open-invitation:hover {
+        background-color: #e24709;
+        transform: scale(1.05);
+    }
+
+    .btn-open-invitation:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    }
+
+    .mb-4 {
+        margin-bottom: 1.5rem;
+    }
+
+/*========================================
+    Layout event
+========================================*/
+    /* event Section */
+    #event {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    .event {
+        max-width: 388px;
+        width: 100%;
+        padding: 20px;
+        padding-top: 5px;
+        padding-bottom: 150px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-image: url(themes/casanova/background.jpg);
+        background-size: cover;
+        background-position: center;
+        border-radius: 0px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+
+    /* Baris untuk h4, p3, dan h5 */
+    .event .top-row {
+        display: flex;
+        justify-content: space-between; /* Mengatur posisi elemen */
+        align-items: center;
+        width: 100%; /* Pastikan elemen menyesuaikan lebar container */
+       }
+   
+      
+   
+        /* Title Styling */
+   .event h2 {
+       font-size: 1.8rem; /* Larger title size */
+       margin-top: -320px; /* Adjust spacing */
+       margin-bottom: 10px; /* Adjust bottom gap */
+       color: #ff8c00; /* Vibrant orange for emphasis */
+       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Soft shadow effect */
+       font-family: "Lobster", cursive; /* Elegant font */
+   }
+   
+   /* Introductory Text */
+   .event p {
+       font-size: 1rem;
+       margin: 0 20px;
+       padding-top: 10px;
+       padding-bottom: 350px; /* Space below */
+       color: #333; /* Dark grey text */
+       text-shadow: #000000 0px 0px 1px;
+       font-family: "Arimo", sans-serif; /* Clean font */
+   }
+   
+   /* Top Row for Date and Time */
+   .event .top-row {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       width: 100%;
+       margin-top: 10px;
+   }
+   
+   /* Date Styling */
+   .event p1 {
+       font-size: 1.1rem;
+       color: #0056b3; /* Subtle blue shade */
+       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Slight shadow */
+       font-weight: bold;
+       padding-top: 40px;
+       font-family: "Arimo", sans-serif;
+   }
+   
+   /* Time Styling */
+   .event p2 {
+       font-size: 1.1rem;
+       color: #ff4500; /* Bright red-orange for contrast */
+       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Slight shadow */
+       font-weight: bold;
+       padding-top: 40px;
+       font-family: "Arimo", sans-serif;
+   }
+   
+   /* Speaker Section */
+   .event p5 {
+       font-size: 1.1rem;
+       color: #006400; /* Deep green */
+       font-weight: bold;
+       margin: 20px 0 5px; /* Spacing above and below */
+       text-transform: uppercase; /* All caps for emphasis */
+       letter-spacing: 1px; /* Slight spacing for clarity */
+       font-family: "Arimo", sans-serif;
+   }
+   
+   .event p6 {
+       font-size: 1.1rem;
+       color: #333; /* Dark grey for professionalism */
+       font-family: "Arimo", sans-serif;
+       margin: 0 20px;
+   }
+   
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/*========================================
+    Layout MAPS
+========================================*/
+    /* MAPS */
+    #maps {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    .maps {
+        max-width: 388px;
+        width: 100%;
+        padding: 20px;
+        padding-top: 5px;
+        padding-bottom: 135px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-image: url(themes/casanova/background.jpg);
+        background-size: cover;
+        background-position: center;
+        border-radius: 0px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        transition: all 0.3s ease-in-out;
+    }
+    
+
+    /* Lokasi Acara Resepsi */
+    .maps h14 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        padding-top: 20px;
+        color: #8B0000; /* Warna merah gelap */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sentuhan bayangan */
+        text-align: center;
+        font-family: "Mea Culpa", cursive; /* Font mewah */
+    }
+
+    /* Rizky Fauzan Ramadhani */
+    .maps h15 {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+        padding-top: 0px;
+        color: #ff9a03; /* Warna teks kuning */
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        text-align: justify;
+        font-family: "Lobster", sans-serif; /* Font khusus */
+    }
+
+
+    .maps p17 {
+        font-size: 0.9rem;
+        margin: 5px 20px; /* Spasi kiri dan kanan lebih proporsional */
+        color: #000000;
+        text-align: justify;
+        font-family: "Roboto", sans-serif;
+    }
+
+    
+
+    /* Tombol */
+
+    .maps btnn {
+        padding-top: 50px;
+    }
+    .btnn {
+        font-size: 10px; /* Ukuran font lebih besar */
+        color: #fff;
+        background-color: #FF4500; /* Warna oranye cerah */
+        padding: 12px 25px;
+        border-radius: 50px; /* Bentuk lebih melingkar */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+        transition: all 0.3s ease;
+    }
+
+    .btnn:hover {
+        background-color: #FF6347; /* Sentuhan warna yang lebih cerah saat hover */
+        transform: scale(1.1); /* Efek zoom yang lebih kuat */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Bayangan lebih dalam */
+    }
+
+
+/*========================================
+    Layout RSVP
+========================================*/
+/* RSVP */
+#rsvp {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.rsvp {
+    max-width: 388px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-image: url(themes/casanova/background.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Konfirmasi Kehadiran */
+.rsvp h1{
+    font-size: 2.3rem;
+        margin-bottom: 10px;
+        padding-top: 20px;
+        color: #8B0000; /* Warna merah gelap */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sentuhan bayangan */
+        text-align: center;
+        font-family: "Mea Culpa", cursive; /* Font mewah */
+}
+
+/* countdown */
+.timebox {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.time {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0 0 0 0.5);
+    background: rgba(184, 190, 184, 0.664);
+}
+
+.time h2 {
+    font-family: "Lobster", sans-serif;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.time p {
+    font-family: "Lobster", sans-serif;
+    font-size: 1rem;
+    font-weight: 100;
+   
+}
+
+.rsvp h15 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    color: #000000;
+    text-align: center;
+    font-family: "Neuton", serif;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Gaya untuk label */
+.form-label {
+    font-weight: bold;
+    color: #343A40;
+    margin-bottom: 6px;
+  }
+  
+  /* Gaya untuk input teks */
+  .form-control, .form-select {
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  /* Gaya untuk tombol */
+  .btnnn-primary {
+    background-color: #007BFF;
+    border: none;
+    padding: 10px 10px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .btnnn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  .btnnn-primary:active {
+    transform: translateY(0);
+  }
+  
+  /* Gaya untuk margin antar elemen */
+  .mb-3 {
+    margin-bottom: 16px;
+  }
+
+/* Disqus Thread Container */
+#disqus_thread {
+    margin-top: 20px; /* Jarak atas dengan elemen sebelumnya */
+   margin-bottom: -100px;
+    margin-left: 15px; /* Jarak kiri */
+    margin-right: 7px; /* Jarak kanan */
+    padding: 20px; /* Memberikan ruang internal */
+    background-color: #ffffff7a; /* Warna latar putih */
+    border: 1px solid #ccc; /* Border abu-abu lembut */
+    border-radius: 5px; /* Sudut melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan untuk kedalaman */
+    width: 90%; /* Menyesuaikan dengan lebar RSVP */
+    max-width: 388px; /* Maksimal lebar agar konsisten dengan .rsvp */
+    font-family: "Arial", sans-serif; /* Gaya font standar */
+    color: #333; /* Warna teks */
+    text-align: left; /* Posisi teks */
+    height: 300px; /* Tinggi elemen untuk memungkinkan scroll */
+    overflow-y: auto; /* Scroll hanya pada sumbu vertikal */
+    scrollbar-width: thin; /* Untuk tampilan scrollbar yang ramping */
+}
+
+/* Custom Scrollbar untuk Disqus */
+#disqus_thread::-webkit-scrollbar {
+    width: 8px; /* Lebar scrollbar */
+}
+
+#disqus_thread::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Warna latar scrollbar */
+}
+
+#disqus_thread::-webkit-scrollbar-thumb {
+    background: #eb5419; /* Warna scrollbar */
+    border-radius: 5px; /* Sudut melengkung pada scrollbar */
+}
+
+#disqus_thread::-webkit-scrollbar-thumb:hover {
+    background: #e24709; /* Warna scrollbar saat hover */
+}
+
+/* Hyperlink di dalam Disqus */
+#disqus_thread a {
+    color: #eb5419; /* Warna utama untuk link */
+    text-decoration: none; /* Hilangkan garis bawah */
+    font-weight: bold; /* Teks link lebih tegas */
+    transition: color 0.3s ease; /* Animasi warna saat hover */
+}
+
+#disqus_thread a:hover {
+    color: #e24709; /* Warna lebih gelap saat hover */
+    text-decoration: underline; /* Tambahkan garis bawah saat hover */
+}
+
+
+/*========================================
+    Layout Thanks
+========================================*/
+/* THANKS */
+#thanks {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.thanks {
+    max-width: 388px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 50px;
+    padding-bottom: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-image: url(themes/casanova/background.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menghitung Hari */
+.thanks h17{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-top: 200px;
+    color: #8B0000;
+    text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+    text-align: justify;
+    font-family: "Mea Culpa", cursive;
+}
+
+.thanks p20{
+    font-size: 0.9rem;
+        margin: 5px 20px; /* Spasi kiri dan kanan lebih proporsional */
+        color: #000000;
+        text-align: justify;
+        font-family: "Roboto", sans-serif;
+}
+
+.thanks p21{
+    font-size: 0.9rem;
+        margin: 5px 20px; /* Spasi kiri dan kanan lebih proporsional */
+        color: #000000;
+        text-align: justify;
+        font-family: "Roboto", sans-serif;
+}
+
+/* Initially hide the music icon */
+#music-icon {
+    position: fixed; /* Ensure it stays fixed on the screen */
+    bottom: 96px; /* Distance from the bottom */
+    right: 10px; /* Distance from the right */
+    display: none; /* Hidden initially */
+    padding: 10px;
+    color: black;
+    background-color: #ffffff6c;
+    cursor: pointer; /* Make the icon clickable */
+    z-index: 1000; /* Keep it above other content */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#music-icon {
+    width: 23px; /* Icon size */
+    height: auto;
+    color: #ff0000; /* Optional: Hover effect */
+}
+
+/* Style for the barcode icon container */
+#barcode-icon-container {
+    position: fixed; /* Ensure it stays fixed on the screen */
+    bottom: 148px; /* Distance from the bottom */
+    right: 10px; /* Distance from the right */
+    display: none; /* Hidden initially */
+    padding: 10px;
+    color: black;
+    background-color: #ffffff6c;
+    cursor: pointer; /* Make the icon clickable */
+    z-index: 1000; /* Keep it above other content */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the barcode itself */
+#barcode-icon {
+    width: 23px; /* Icon size */
+    height: auto;
+    color: #000000; /* Optional: Hover effect */
+}
+
+/* Style for the WhatsApp icon container */
+#whatsapp-icon-container {
+    position: fixed; /* Ensure it stays fixed on the screen */
+    bottom: 203px; /* Distance from the bottom */
+    right: 10px; /* Distance from the right */
+    display: none; /* Hidden initially */
+    padding: 10px;
+    color: #1b880e; /* Color for the WhatsApp icon */
+    background-color: #ffffff6c;
+    cursor: pointer; /* Make the icon clickable */
+    z-index: 1000; /* Keep it above other content */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#whatsapp-icon  {
+    width: 100px; /* Icon size */
+    height: auto;
+    color: #000000; /* Optional: Hover effect */
+}
+/*========================================
+    Responsiveness for Laptop
+========================================*/
+@media screen and (min-width: 769px) {
+/*========================================
+    Navabar bawah/Navigation
+========================================*/
+     /* Navigation Styles */
+     .navigation {
+        bottom: 0px;
+        right: 2.5px;
+        width: 392px;
+        border-radius: 5px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navigation ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navigation .list {
+        flex: none;
+        margin: 0 8px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .navigation .list .icon {
+        font-size: 1.6rem;
+    }
+
+    .navigation .list .text {
+        font-size: 0.8rem;
+    }
+
+    /* Navigation Container */
+    .navigation-container {
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navigation-container ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navigation-container li {
+        margin: 0 10px;
+    }
+
+    .navigation-container a {
+        text-decoration: none;
+        color: #00ff6a;
+        font-size: 1rem;
+    }
+
+    .navigation-container a:hover {
+        color: #89f50e;
+    }
+
+/*========================================
+    Vidio Controler
+========================================*/
+/* Video Container */
+.video-container {
+    position: fixed; /* Posisi tetap */
+    left: 33.5%; /* Posisikan di tengah horizontal */
+    top: 50%; /* Posisikan di tengah vertikal */
+    transform: translate(-50%, -50%); /* Pusatkan secara penuh */
+    width: 870px; /* Lebar tetap 860px */
+    height: 649px; /* Tinggi tetap 649px */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan */
+    border-radius: 0px; /* Sudut melengkung */
+    overflow: hidden; /* Sembunyikan bagian yang meluap */
+    background-color: black; /* Opsional: Latar belakang */
+}
+
+/* Video Styles */
+.video-container video {
+    width: 100%; /* Video mengikuti lebar container */
+    height: 100%; /* Video mengikuti tinggi container */
+    object-fit: contain; /* Pastikan video tidak terpotong */
+}
+
+
+
+    .content {
+        position: relative; /* Agar tetap berada di atas video */
+        text-align: center;
+        color: white;
+        z-index: 1; /* Pastikan konten berada di depan video */
+        font-family: Arial, sans-serif;
+    }
+
+ 
+  
+    /* Nonaktifkan scroll secara default */
+    body.no-scroll {
+    overflow: hidden; /* Nonaktifkan scroll */
+    }
+
+/*========================================
+    Hero/Opening
+========================================*/
+    /* Hero Section */
+    #hero {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    .hero {
+        max-width: 388px;
+        width: 100%;
+        padding: 20px;
+        padding-top: 10px;
+        padding-bottom: 110px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-image: url(themes/casanova/background.jpg);
+        background-size: cover;
+        background-position: center;
+        border-radius: 0px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hero p, .hero p1, .hero h1, .hero h2, .hero p2, .hero h3 {
+        padding-left: 16px;
+        
+    }
+
+    /*Description*/
+    .hero p{
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        padding-top: 10px;
+        color: #000000d0;
+        font-family: "Montserrat", sans-serif;
+        text-shadow: #000000 0px 1px 2px; /* Bayangan teks */
+    }
+
+
+    /* Baris untuk h4, p3, dan h5 */
+    .hero .top-roww {
+        display: flex;
+        justify-content: space-between; /* Mengatur posisi elemen */
+        align-items: center;
+        width: 100%; /* Pastikan elemen menyesuaikan lebar container */
+    }
+
+    /* 1 Abad */
+    .hero h1 {
+        font-size: 1.5rem; /* Ukuran judul */
+        margin-top: 35px; /* Jarak atas */
+        margin-bottom: 30px; /* Jarak bawah */
+        color: #ff9a03; /* Warna teks putih */
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        font-family: "Lobster", sans-serif; /* Font khusus */
+        text-align: center; /* Teks rata kiri */
+    }
+    
+    /*&*/
+    .hero p1 {
+        font-family: "Arimo", sans-serif;
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        font-size: 20px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+        text-align: center; /* Teks rata tengah */
+        margin: 0 20px; /* Memberikan jarak horizontal */
+    }
+
+    /* SD Negeri 1 Langgongsari */
+    .hero h2 {
+        font-size: 1.5rem; /* Ukuran judul */
+        margin-top: -25px; /* Jarak atas */
+        margin-bottom: -15px; /* Jarak bawah */
+        color: #ff9900; /* Warna teks putih */
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        font-family: "Lobster", sans-serif; /* Font khusus */
+        text-align: center; /* Teks rata kanan */
+    }
+
+    /*Akan melangsungkan resepsi pernikahan dalam :*/
+    .hero p2 {
+        font-family: "Arimo", sans-serif;
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        font-size: 1rem;
+        padding-bottom: 20px;
+        padding-top: 10px;
+        text-align: center; /* Teks rata tengah */
+        margin: 0 10px; /* Memberikan jarak horizontal */
+    }
+
+    
+    /*Kepada Yth :*/
+    .hero h3 {
+        font-size: 1rem;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #000000;
+        font-family: "Lobster", sans-serif;
+        
+    }
+
+    /*Bapak/Ibu/Saudara/i,*/
+    .hero p3 {
+        font-size: 1rem;
+        margin-top: 2.5px;
+        margin-bottom: 10px;
+        color: #000000;
+        font-family: "Lobster", sans-serif;
+        text-shadow: #000000 0px 0px 1px;
+    }
+
+    /*Nama Tamu :*/
+    .hero h4 {
+        font-size: 1rem;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #000000;
+        font-family: "Lobster", sans-serif;
+        
+    }
+
+    /* countdown */
+.countdown {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.time1 {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0 0 0 0.5);
+    background: rgba(184, 190, 184, 0.664);
+}
+
+.time1 h3 {
+    font-family: "Lobster", sans-serif;
+    font-size: 1rem;
+    font-weight: 100;
+    padding-right: 13px;
+    padding-top: 8px;
+    
+    
+}
+
+.time1 p {
+    font-family: "Lobster", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 100;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+    /* Animation Keyframes */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+/*========================================
+    Button Buka Undangan
+========================================*/
+    /* Button Styles */
+    .btn-open-invitation {
+        background-color: #eb5419;
+        margin-top: 45px;
+        margin-left: 20px;
+        color: white;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 50rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-open-invitation:hover {
+        background-color: #e24709;
+        transform: scale(1.05);
+    }
+
+    .btn-open-invitation:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    }
+
+    .mb-4 {
+        margin-bottom: 1.5rem;
+    }
+
+/*========================================
+    Layout event
+========================================*/
+     /* event Section */
+     #event {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    .event {
+        max-width: 388px;
+        width: 100%;
+        padding: 20px;
+        padding-top: 5px;
+        padding-bottom: 80px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-image: url(themes/casanova/background.jpg);
+        background-size: cover;
+        background-position: center;
+        border-radius: 0px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+
+    /* Baris untuk h4, p3, dan h5 */
+    .event .top-row {
+     display: flex;
+     justify-content: space-between; /* Mengatur posisi elemen */
+     align-items: center;
+     width: 100%; /* Pastikan elemen menyesuaikan lebar container */
+    }
+
+   
+
+/* Title Styling */
+.event h2 {
+    font-size: 1.5rem; /* Ukuran judul lebih besar */
+    margin-top: -320px; /* Atur jarak dari atas */
+    margin-bottom: 10px; /* Atur jarak dari bawah */
+    background: linear-gradient(90deg, #1310e9, #0080ff); /* Gradien dua warna: coral dan dodger blue */
+    -webkit-background-clip: text; /* Potong latar belakang sesuai teks (untuk efek warna di teks) */
+    color: transparent; /* Warna teks transparan agar gradien terlihat */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* Bayangan teks yang kuat */
+    font-family: "Cinzel", serif; /* Font yang memberikan nuansa klasik dan berkarakter */
+}
+
+
+/* Introductory Text */
+.event p {
+    font-size: 1rem;
+    margin: 0 20px;
+    padding-top: 10px;
+    padding-bottom: 350px; /* Space below */
+    color: #000000; /* Dark grey text */
+    text-shadow: #000000 0px 0px 1px;
+    font-family: "Arimo", sans-serif; /* Clean font */
+}
+
+/* Top Row for Date and Time */
+.event .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Date Styling */
+.event p3 {
+    font-size: 1.2rem;
+    color: #000000; /* Subtle blue shade */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Slight shadow */
+    font-weight: bold;
+    padding-bottom: -30px;
+    padding-left: 65px;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* Bayangan teks yang kuat */
+    font-family: "Arimo", sans-serif;
+}
+
+/* Date Styling */
+.event p4 {
+    font-size: 1.2rem;
+    color: #000000; /* Subtle blue shade */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Slight shadow */
+    font-weight: bold;
+    padding-right: 65px;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* Bayangan teks yang kuat */
+    font-family: "Arimo", sans-serif;
+}
+
+/* Date Styling */
+.event p1 {
+    font-size: 1.2rem;
+    color: #000000; /* Subtle blue shade */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Slight shadow */
+    font-weight: bold;
+    padding-top: 40px;
+    font-family: "Arimo", sans-serif;
+}
+
+/* Time Styling */
+.event p2 {
+    font-size: 1.2rem;
+    color: #000000; /* Bright red-orange for contrast */
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3); /* Slight shadow */
+    font-weight: bold;
+    padding-top: 40px;
+    font-family: "Arimo", sans-serif;
+}
+
+/* Speaker Section */
+.event p5 {
+    font-size: 1.1rem;
+    color: #000000; /* Warna hijau hangat (Sea Green) untuk kesan alami dan elegan */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Bayangan lembut yang memberikan kedalaman */
+    margin: 20px 0 5px; /* Jarak atas dan bawah */
+    text-transform: uppercase; /* Huruf besar untuk penekanan */
+    letter-spacing: 1.2px; /* Spasi huruf lebih jelas */
+    font-family: "Playfair Display", serif; /* Font yang memberi nuansa profesional dan berkarakter */
+}
+
+/* Enhanced Section for Additional Speaker Info */
+.event p6 {
+    font-size: 1.5rem;
+    color: #000000; /* Warna indigo untuk kesan misterius dan profesional */
+    font-weight: 600; /* Sedikit lebih tebal untuk kesan kokoh */
+    font-family: "Montserrat", sans-serif; /* Font modern untuk kesan dinamis */
+    margin: 0 20px; /* Jarak kiri dan kanan */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6); /* Bayangan kuat untuk teks yang berkesan */
+    letter-spacing: 1px; /* Spasi tambahan untuk keterbacaan */
+    padding-bottom: 40px;
+}
+
+
+/* Animation Effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px); /* Slide in slightly */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Reset position */
+    }
+}
+
+
+
+/*========================================
+    Layout MAPS
+========================================*/
+    /* MAPS */
+    #maps {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    .maps {
+        max-width: 388px;
+        width: 100%;
+        padding: 20px;
+        padding-top: 5px;
+        padding-bottom: 70px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-image: url(themes/casanova/background.jpg);
+        background-size: cover;
+        background-position: center;
+        border-radius: 0px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        transition: all 0.3s ease-in-out;
+    }
+    
+
+    /* Lokasi  */
+    .maps h14 {
+        font-size: 2.3rem;
+        margin-bottom: 10px;
+        padding-top: 20px;
+        color: #8B0000; /* Warna merah gelap */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sentuhan bayangan */
+        text-align: center;
+        font-family: "Mea Culpa", cursive; /* Font mewah */
+    }
+
+    /* SD Negeri 1 Langgongsari */
+    .maps h15 {
+        font-size: 2rem;
+        margin-bottom: 5px;
+        padding-top: 0px;
+        color: #ff9a03; /* Warna teks kuning */
+        text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+        text-align: justify;
+        font-family: "Lobster", sans-serif; /* Font khusus */
+    }
+
+
+    .maps p17 {
+        font-size: 0.9rem;
+        margin: 5px 20px; /* Spasi kiri dan kanan lebih proporsional */
+        color: #000000;
+        text-align: justify;
+        font-family: "Roboto", sans-serif;
+    }
+
+    
+
+    /* Tombol */
+
+    .maps btnn {
+        padding-top: 50px;
+    }
+    .btnn {
+        font-size: 10px; /* Ukuran font lebih besar */
+        color: #fff;
+        background-color: #FF4500; /* Warna oranye cerah */
+        padding: 12px 25px;
+        border-radius: 50px; /* Bentuk lebih melingkar */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+        transition: all 0.3s ease;
+    }
+
+    .btnn:hover {
+        background-color: #FF6347; /* Sentuhan warna yang lebih cerah saat hover */
+        transform: scale(1.1); /* Efek zoom yang lebih kuat */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Bayangan lebih dalam */
+    }
+
+
+/*========================================
+    Layout RSVP
+========================================*/
+/* RSVP */
+#rsvp {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.rsvp {
+    max-width: 388px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-image: url(themes/casanova/background.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menghitung Hari */
+.rsvp h1{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    color: #8B0000;
+    text-shadow: #000000 0px 0px 0px; /* Bayangan teks */
+    text-align: justify;
+    font-family: "Mea Culpa", cursive;
+}
+
+
+
+.rsvp h15 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    color: #000000;
+    text-align: center;
+    font-family: "Neuton", serif;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Gaya untuk label */
+.form-label {
+    font-weight: bold;
+    color: #343A40;
+    margin-bottom: 6px;
+  }
+  
+  /* Gaya untuk input teks */
+  .form-control, .form-select {
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  /* Gaya untuk tombol */
+  .btnnn-primary {
+    background-color: #007BFF;
+    border: none;
+    padding: 10px 10px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .btnnn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  .btnnn-primary:active {
+    transform: translateY(0);
+  }
+  
+  /* Gaya untuk margin antar elemen */
+  .mb-3 {
+    margin-bottom: 16px;
+  }
+  
+  
+
+/* Disqus Thread Container */
+#disqus_thread {
+    margin-top: 20px; /* Jarak atas dengan elemen sebelumnya */
+   margin-bottom: -100px;
+    margin-left: 15px; /* Jarak kiri */
+    margin-right: 7px; /* Jarak kanan */
+    padding: 20px; /* Memberikan ruang internal */
+    background-color: #ffffff7a; /* Warna latar putih */
+    border: 1px solid #ccc; /* Border abu-abu lembut */
+    border-radius: 5px; /* Sudut melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan untuk kedalaman */
+    width: 90%; /* Menyesuaikan dengan lebar RSVP */
+    max-width: 388px; /* Maksimal lebar agar konsisten dengan .rsvp */
+    font-family: "Arial", sans-serif; /* Gaya font standar */
+    color: #333; /* Warna teks */
+    text-align: left; /* Posisi teks */
+    height: 300px; /* Tinggi elemen untuk memungkinkan scroll */
+    overflow-y: auto; /* Scroll hanya pada sumbu vertikal */
+    scrollbar-width: thin; /* Untuk tampilan scrollbar yang ramping */
+}
+
+/* Custom Scrollbar untuk Disqus */
+#disqus_thread::-webkit-scrollbar {
+    width: 8px; /* Lebar scrollbar */
+}
+
+#disqus_thread::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Warna latar scrollbar */
+}
+
+#disqus_thread::-webkit-scrollbar-thumb {
+    background: #eb5419; /* Warna scrollbar */
+    border-radius: 5px; /* Sudut melengkung pada scrollbar */
+}
+
+#disqus_thread::-webkit-scrollbar-thumb:hover {
+    background: #e24709; /* Warna scrollbar saat hover */
+}
+
+/* Hyperlink di dalam Disqus */
+#disqus_thread a {
+    color: #eb5419; /* Warna utama untuk link */
+    text-decoration: none; /* Hilangkan garis bawah */
+    font-weight: bold; /* Teks link lebih tegas */
+    transition: color 0.3s ease; /* Animasi warna saat hover */
+}
+
+#disqus_thread a:hover {
+    color: #e24709; /* Warna lebih gelap saat hover */
+    text-decoration: underline; /* Tambahkan garis bawah saat hover */
+}
+
+
+/*========================================
+    Layout Thanks
+========================================*/
+/* THANKS */
+#thanks {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.thanks {
+    max-width: 388px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 50px;
+    padding-bottom: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-image: url(themes/casanova/background.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menghitung Hari */
+.thanks h17{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-top: 200px;
+    color: #8B0000;
+    text-shadow: #000000 0px 0px 2px; /* Bayangan teks */
+    text-align: justify;
+    font-family: "Mea Culpa", cursive;
+}
+
+.thanks p20{
+    font-size: 0.9rem;
+        margin: 5px 20px; /* Spasi kiri dan kanan lebih proporsional */
+        color: #000000;
+        text-align: justify;
+        font-family: "Roboto", sans-serif;
+}
+
+.thanks p21{
+    font-size: 0.9rem;
+        margin: 5px 20px; /* Spasi kiri dan kanan lebih proporsional */
+        color: #000000;
+        text-align: justify;
+        font-family: "Roboto", sans-serif;
+}
+
+/* Initially hide the music icon */
+#music-icon {
+    position: fixed; /* Ensure it stays fixed on the screen */
+    bottom: 96px; /* Distance from the bottom */
+    right: 10px; /* Distance from the right */
+    display: none; /* Hidden initially */
+    padding: 10px;
+    color: black;
+    background-color: #ffffff6c;
+    cursor: pointer; /* Make the icon clickable */
+    z-index: 1000; /* Keep it above other content */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#music-icon {
+    width: 23px; /* Icon size */
+    height: auto;
+    color: #ff0000; /* Optional: Hover effect */
+}
+
+/* Style for the barcode icon container */
+#barcode-icon-container {
+    position: fixed; /* Ensure it stays fixed on the screen */
+    bottom: 148px; /* Distance from the bottom */
+    right: 10px; /* Distance from the right */
+    display: none; /* Hidden initially */
+    padding: 10px;
+    color: black;
+    background-color: #ffffff6c;
+    cursor: pointer; /* Make the icon clickable */
+    z-index: 1000; /* Keep it above other content */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the barcode itself */
+#barcode-icon {
+    width: 23px; /* Icon size */
+    height: auto;
+    color: #000000; /* Optional: Hover effect */
+}
+
+
+/* Style for the WhatsApp icon container */
+#whatsapp-icon-container {
+    position: fixed; /* Ensure it stays fixed on the screen */
+    bottom: 203px; /* Distance from the bottom */
+    right: 10px; /* Distance from the right */
+    display: none; /* Hidden initially */
+    padding: 10px;
+    color: #1b880e;
+    background-color: #ffffff6c;
+    cursor: pointer; /* Make the icon clickable */
+    z-index: 1000; /* Keep it above other content */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#whatsapp-icon  {
+    width: 100px; /* Icon size */
+    height: auto;
+    color: #000000; /* Optional: Hover effect */
+}
+}
